@@ -7,12 +7,13 @@ const PatientDoctors = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedSpec, setSelectedSpec] = useState("");
   const [loading, setLoading] = useState(true);
-
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
+  
 
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5000/api/doctors")
+      .get(`${backendURL}/api/doctors`)
       .then((res) => {
         const data = Array.isArray(res.data)
           ? res.data

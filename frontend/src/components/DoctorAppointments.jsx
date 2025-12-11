@@ -22,7 +22,7 @@ const DoctorAppointments = () => {
   const [viewReportUrl, setViewReportUrl] = useState(null);
   const [loading, setLoading] = useState(false);
 
-
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
 
   const token = localStorage.getItem("token");
 
@@ -35,7 +35,7 @@ const DoctorAppointments = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        `http://localhost:5000/api/appointments/status/${status}`,
+        `${backendURL}/api/appointments/status/${status}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setAppointments(res.data);
@@ -62,7 +62,7 @@ const DoctorAppointments = () => {
     setLoading(true);
     for (let s of statuses) {
       const res = await axios.get(
-        `http://localhost:5000/api/appointments/status/${s}`,
+        `${backendURL}/api/appointments/status/${s}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       newCounts[s] = res.data.length;
@@ -83,7 +83,7 @@ const DoctorAppointments = () => {
           : { status: newStatus };
 
       await axios.patch(
-        `http://localhost:5000/api/appointments/status/${id}`,
+        `${backendURL}/api/appointments/status/${id}`,
         payload,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -140,7 +140,7 @@ const DoctorAppointments = () => {
     const handleViewReport = async (appointmentId) => {
       try {
         const res = await fetch(
-          `http://localhost:5000/api/appointments/report/${appointmentId}`,
+          `${backendURL}/api/appointments/report/${appointmentId}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         if (!res.ok) throw new Error("Failed to fetch report");

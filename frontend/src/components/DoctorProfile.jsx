@@ -20,12 +20,13 @@ const DoctorProfile = ({ user }) => {
     phone: "",
     image: null,
   });
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:5000/api/doctors/profile/me", {
+        const res = await fetch(`${backendURL}/api/doctors/profile/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -91,7 +92,7 @@ const DoctorProfile = ({ user }) => {
         imageUrl: formState.image || profileData.imageUrl,
       };
 
-      const res = await fetch("http://localhost:5000/api/doctors/profile/me", {
+      const res = await fetch(`${backendURL}/api/doctors/profile/me`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

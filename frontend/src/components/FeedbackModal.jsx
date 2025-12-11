@@ -10,13 +10,13 @@ const FeedbackModal = ({ show, onClose, appointment, onFeedbackSubmitted }) => {
   const [loading, setLoading] = useState(false);
 
   if (!show) return null;
-
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
   const handleSubmit = async () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/api/feedback",
+       `${backendURL}/api/feedback`,
         {
           appointmentId: appointment._id,
           doctorId: appointment.doctorId._id || appointment.doctorId,

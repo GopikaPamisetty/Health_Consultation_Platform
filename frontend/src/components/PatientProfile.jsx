@@ -9,6 +9,7 @@ const PatientProfile = ({ user }) => {
   const [showForm, setShowForm] = useState(false);
   const [previewImage, setPreviewImage] = useState(null);
   const [loading, setLoading] = useState(true);
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
 
   const [form, setForm] = useState({
     name: "",
@@ -23,7 +24,7 @@ const PatientProfile = ({ user }) => {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:5000/api/auth/profile/me", {
+        const res = await fetch(`${backendURL}/api/auth/profile/me`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -77,7 +78,7 @@ const PatientProfile = ({ user }) => {
         imageUrl: form.image || profile.imageUrl,
       };
 
-      const res = await fetch("http://localhost:5000/api/auth/profile/me", {
+      const res = await fetch(`${backendURL}/api/auth/profile/me`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

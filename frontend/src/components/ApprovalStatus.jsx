@@ -13,13 +13,16 @@ const ApprovalStatus = () => {
   const [prevStatus, setPrevStatus] = useState(null);
   const [loading, setLoading] = useState(true);
   const certificateRef = useRef(null);
-
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
+  
+  
+  
   useEffect(() => {
     const fetchApproval = async () => {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get(
-          "http://localhost:5000/api/doctors/approval-status",
+          `${backendURL}/api/doctors/approval-status`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

@@ -31,7 +31,8 @@ const AdminDashboard = () => {
   const [doctorSpecializations, setDoctorSpecializations] = useState([]);
   const [allFeedbacks, setAllFeedbacks] = useState([]);
 
-  const backendURL = "http://localhost:5000";
+  // const backendURL = "http://localhost:5000";
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
 
   const fetchDoctors = async () => {
     try {

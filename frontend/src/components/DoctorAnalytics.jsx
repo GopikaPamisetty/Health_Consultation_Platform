@@ -16,7 +16,7 @@ const DoctorAnalytics = () => {
   const [chartData, setChartData] = useState([]);
   const [totalAppointments, setTotalAppointments] = useState(0);
   const [doctor, setDoctor] = useState(null);
-
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
   useEffect(() => {
     const fetchAnalytics = async () => {
       try {
@@ -26,7 +26,7 @@ const DoctorAnalytics = () => {
         const token = localStorage.getItem("token");
 
         const response = await axios.get(
-          `http://localhost:5000/api/analytics/doctor/${doctorId}`,
+         `${backendURL}/api/analytics/doctor/${doctorId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

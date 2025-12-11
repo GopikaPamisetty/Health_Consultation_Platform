@@ -8,7 +8,7 @@ const PendingAppointments = () => {
   const [appointments, setAppointments] = useState([]);
   const [loadingId, setLoadingId] = useState(null);
   const [loadingAction, setLoadingAction] = useState(""); // "Approved" or "Rejected"
-
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
   const today = new Date().toLocaleDateString("en-US", {
     weekday: "long",
     day: "numeric",
@@ -21,7 +21,7 @@ const PendingAppointments = () => {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get(
-          "http://localhost:5000/api/appointments/appointments",
+         `${backendURL}/api/appointments/appointments`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -46,7 +46,7 @@ const PendingAppointments = () => {
       const payload = status === "Completed" ? { status, prescription, medicines } : { status };
 
       await axios.patch(
-        `http://localhost:5000/api/appointments/update-status/${id}`,
+        `${backendURL}/api/appointments/update-status/${id}`,
         payload,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -122,7 +122,7 @@ const PendingAppointments = () => {
                     <button
                       onClick={() =>
                         window.open(
-                          `http://localhost:5000/api/appointments/view-report/${appointment._id}`,
+                          `${backendURL}/api/appointments/view-report/${appointment._id}`,
                           "_blank"
                         )
                       }
@@ -132,7 +132,7 @@ const PendingAppointments = () => {
                     </button>
 
                     <a
-                      href={`http://localhost:5000/api/appointments/view-report/${appointment._id}`}
+                      href={`${backendURL}/api/appointments/view-report/${appointment._id}`}
                       download={`report_${appointment._id}.pdf`}
                       className="flex-1 bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg text-center text-sm"
                     >

@@ -12,7 +12,8 @@ const LoginForm = ({ onLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false); //  added
   const navigate = useNavigate();
-
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
+  
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
@@ -26,7 +27,7 @@ const LoginForm = ({ onLogin }) => {
     setLoading(true); //  show "Logging in..."
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch(`${backendURL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

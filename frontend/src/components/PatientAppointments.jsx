@@ -14,6 +14,7 @@ const PatientAppointments = () => {
   const [selectedAppointment, setSelectedAppointment] = useState(null);
   const [submittedFeedbacks, setSubmittedFeedbacks] = useState({});
   const [showFullFeedback, setShowFullFeedback] = useState({});
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     const fetchAppointments = async () => {
@@ -30,7 +31,7 @@ const PatientAppointments = () => {
         const userId = user._id;
 
         const res = await axios.get(
-          `http://localhost:5000/api/appointments/status/patient/${userId}`,
+         `${backendURL}/api/appointments/status/patient/${userId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -55,7 +56,7 @@ const PatientAppointments = () => {
           completed.map(async (appt) => {
             try {
               const fbRes = await axios.get(
-                `http://localhost:5000/api/feedback/appointment/${appt._id}`,
+               `${backendURL}/api/feedback/appointment/${appt._id}`,
                 {
                   headers: { Authorization: `Bearer ${token}` },
                 }
@@ -139,7 +140,7 @@ const PatientAppointments = () => {
 
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/appointments/upload-report/${appointmentId}`,
+        `${backendURL}/api/appointments/upload-report/${appointmentId}`,
         formData,
         {
           headers: {
@@ -298,7 +299,7 @@ const PatientAppointments = () => {
                       ) : (
                         <>
                           <a
-                            href={`http://localhost:5000/api/appointments/view-report/${appointment._id}`}
+                            href={`${backendURL}/api/appointments/view-report/${appointment._id}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-3 py-1.5 rounded-md text-sm font-medium bg-green-50 text-green-700 hover:bg-green-100 transition"
@@ -307,7 +308,7 @@ const PatientAppointments = () => {
                           </a>
 
                           <a
-                            href={`http://localhost:5000/api/appointments/view-report/${appointment._id}`}
+                            href={`${backendURL}/api/appointments/view-report/${appointment._id}`}
                             download={appointment._id + "_report.pdf"}
                             className="px-3 py-1.5 rounded-md text-sm font-medium bg-violet-50 text-violet-700 hover:bg-violet-100 transition"
                           >

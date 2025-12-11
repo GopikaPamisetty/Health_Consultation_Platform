@@ -8,11 +8,12 @@ const DoctorFeedbackSummary = () => {
   const [loading, setLoading] = useState(true);
 
   const token = localStorage.getItem("token");
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     const fetchFeedbackSummary = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/feedback/me`, {
+        const res = await axios.get(`${backendURL}/api/feedback/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

@@ -13,6 +13,8 @@ const LabTestRequests = () => {
   const [loadingTests, setLoadingTests] = useState(true);
   const [uploading, setUploading] = useState(false);
 
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
+
   const fetchTests = async () => {
     try {
       setLoadingTests(true);
@@ -21,7 +23,7 @@ const LabTestRequests = () => {
       console.log("Current user from localStorage:", user);
 
       console.log("Fetching lab tests...");
-      const res = await fetch("http://localhost:5000/api/lab-tests/tests", {
+      const res = await fetch(`${backendURL}/api/lab-tests/tests`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -54,7 +56,7 @@ const LabTestRequests = () => {
 
   const handleUpdate = async (id, status) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/lab-tests/${id}`, {
+      const res = await fetch(`${backendURL}/api/lab-tests/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -86,7 +88,7 @@ const LabTestRequests = () => {
       setUploading(true);
 
       const res = await axios.post(
-        `http://localhost:5000/api/lab/upload-result/${selectedTest._id}`,
+        `${backendURL}/api/lab/upload-result/${selectedTest._id}`,
         formData,
         {
           headers: {
@@ -110,7 +112,7 @@ const LabTestRequests = () => {
   };
 
   const handleDownload = (testId, fileName = "result.pdf") => {
-    const url = `http://localhost:5000/api/lab/download-result/${testId}`;
+    const url = `${backendURL}/api/lab/download-result/${testId}`;
     const link = document.createElement("a");
     link.href = url;
     link.setAttribute("download", fileName);
@@ -118,7 +120,7 @@ const LabTestRequests = () => {
   };
 
   const handleView = async (testId) => {
-    const url = `http://localhost:5000/api/lab/download-result/${testId}`;
+    const url = `${backendURL}/api/lab/download-result/${testId}`;
     console.log("Opening PDF for testId:", testId, "URL:", url);
 
     try {

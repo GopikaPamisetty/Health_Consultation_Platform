@@ -7,6 +7,7 @@ import { FiLogOut, FiFileText, FiUser, FiFolderPlus } from "react-icons/fi";
 const LabDashboard = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -35,7 +36,7 @@ const LabDashboard = () => {
 
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/lab/upload-result/${testId}`,
+        `${backendURL}/api/lab/upload-result/${testId}`,
         formData,
         {
           headers: { Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data" },

@@ -10,7 +10,8 @@ const Chatbot = () => {
   ]);
 
   const messagesEndRef = useRef(null);
-
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
+ 
   // Scroll to bottom whenever messages update
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -25,7 +26,7 @@ const Chatbot = () => {
     setInput("");
 
     try {
-      const res = await fetch("http://localhost:5000/api/chatbot", {
+      const res = await fetch(`${backendURL}/api/chatbot`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userInput }),

@@ -20,13 +20,14 @@ const RegisterForm = () => {
       [e.target.name]: e.target.value,
     }));
   };
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true); // 
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/register", {
+      const res = await fetch(`${backendURL}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -52,7 +53,7 @@ const RegisterForm = () => {
     } catch (error) {
       toast.error("Error: " + error.message);
     } finally {
-      setLoading(false); // 👈 stop showing "Registering..."
+      setLoading(false); //  stop showing "Registering..."
     }
   };
 

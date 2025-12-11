@@ -8,13 +8,14 @@ const PatientLabTests = () => {
   const token = localStorage.getItem("token");
   const patientId = localStorage.getItem("userId");
   const [loading, setLoading] = useState(false);
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
 
   const fetchTests = async () => {
     setLoading(true);
     try {
       console.log("Fetching tests for patientId:", patientId);
       const res = await fetch(
-        `http://localhost:5000/api/lab-tests/patient/${patientId}`,
+       `${backendURL}/api/lab-tests/patient/${patientId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -44,7 +45,7 @@ const PatientLabTests = () => {
   }, []);
 
   const handleDownload = async (testId, fileName = "result.pdf") => {
-    const url = `http://localhost:5000/api/lab/download-result/${testId}`;
+    const url = `${backendURL}/api/lab/download-result/${testId}`;
 
     try {
       const res = await fetch(url, {
@@ -70,7 +71,7 @@ const PatientLabTests = () => {
   };
 
   const handleView = async (testId) => {
-    const url = `http://localhost:5000/api/lab/download-result/${testId}`;
+    const url = `${backendURL}/api/lab/download-result/${testId}`;
     console.log("Opening PDF for testId:", testId);
 
     try {

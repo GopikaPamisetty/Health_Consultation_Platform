@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const API_BASE = "http://localhost:5000/api/lab";
+const API_BASE = "https://health-consultation-platform.onrender.com/api/lab";
 
 const PatientBookLab = () => {
   const [labs, setLabs] = useState([]);
