@@ -6,7 +6,11 @@
     "rewrites": [
       {
         "source": "/api/(.*)",
-        "destination": "https://healthconsult-backend.onrender.com/api/$1"
+        "destination": "https://health-consultation-platform.onrender.com/api/$1"
+      },
+      {
+        "source": "/(.*)",
+        "destination": "/index.html"
       }
     ]
   }
