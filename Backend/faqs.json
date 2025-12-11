@@ -1,0 +1,122 @@
+[
+  {
+    "question": "hello",
+    "answer": "Hello! I'm HealthBot 🤖. How can I assist you with your health consultation today?"
+  },
+  {
+    "question": "how can i book an appointment",
+    "answer": "You can easily book an appointment by going to the 'Doctors' section, selecting a specialist, and clicking 'Book Appointment'."
+  },
+  {
+    "question": "how to cancel my appointment",
+    "answer": "To cancel an appointment, open your dashboard, go to 'Appointments', and click 'Cancel' next to the one you wish to remove."
+  },
+  {
+    "question": "how to reschedule appointment",
+    "answer": "Go to your appointments list and click on the appointment you want to reschedule, then choose a new date and time."
+  },
+  {
+    "question": "how can i find a doctor",
+    "answer": "Visit the 'Find Doctor' page, filter by specialization or location, and view profiles of available doctors."
+  },
+  {
+    "question": "how to update profile",
+    "answer": "Log in to your account, go to 'My Profile', make your updates, and click 'Save Changes'."
+  },
+  {
+    "question": "how to reset my password",
+    "answer": "Click 'Forgot Password' on the login screen, enter your email, and follow the reset instructions."
+  },
+  {
+    "question": "is my data secure",
+    "answer": "Yes, we use encryption and secure authentication to keep your health information private and protected."
+  },
+  {
+    "question": "can i chat with my doctor",
+    "answer": "If your doctor has enabled chat, you'll find a 'Chat Now' button in your appointment details."
+  },
+  {
+    "question": "what does pending appointment mean",
+    "answer": "It means your booking request has been sent but the doctor has not yet approved it."
+  },
+  {
+    "question": "what is a confirmed appointment",
+    "answer": "A confirmed appointment means the doctor has approved your request and scheduled a time for consultation."
+  },
+  {
+    "question": "how to contact support",
+    "answer": "You can reach support by clicking 'Help' in the footer or emailing support@healthconsultation.com."
+  },
+  {
+    "question": "can i book multiple appointments",
+    "answer": "Yes, you can book multiple appointments with different doctors as long as the times do not overlap."
+  },
+  {
+    "question": "how to upload reports",
+    "answer": "Go to your 'Profile' or 'Appointments' page and use the 'Upload Reports' option to share medical files with your doctor."
+  },
+  {
+    "question": "can i consult online",
+    "answer": "Yes! We offer online consultations via secure video or chat depending on doctor availability."
+  },
+  {
+    "question": "how to know doctor specialization",
+    "answer": "Each doctor profile lists their specialization, experience, and qualification for easy reference."
+  },
+  {
+    "question": "what payment methods are available",
+    "answer": "We currently support UPI, credit/debit cards, and online wallet payments."
+  },
+  {
+    "question": "how do i get prescription",
+    "answer": "After your consultation, the doctor will upload an e-prescription that you can download from your dashboard."
+  },
+  {
+    "question": "how to view my prescriptions",
+    "answer": "Log in, go to 'My Prescriptions', and click 'View' or 'Download' for any completed consultation."
+  },
+  {
+    "question": "how to report a technical issue",
+    "answer": "Use the 'Report Issue' option in the footer or send details to techsupport@healthconsultation.com."
+  },
+  {
+    "question": "what if doctor doesn't respond",
+    "answer": "If a doctor does not respond within 24 hours, the appointment will be automatically marked as expired and you may choose another doctor."
+  },
+  {
+    "question": "how to check appointment status",
+    "answer": "Go to 'My Appointments' — statuses like Pending, Confirmed, or Completed will be shown beside each booking."
+  },
+  {
+    "question": "can i delete my account",
+    "answer": "Yes, go to 'Account Settings' and choose 'Delete Account'. Your data will be permanently removed."
+  },
+  {
+    "question": "how to provide feedback",
+    "answer": "After your appointment, you'll receive a feedback form to rate your doctor and leave a comment."
+  },
+  {
+    "question": "what is online consultation",
+    "answer": "Online consultation allows you to talk to your doctor through video or chat without visiting the clinic physically."
+  },
+  {
+    "question": "how to change language",
+    "answer": "Currently, Health Consultation supports English only. More languages are coming soon!"
+  },
+  {
+    "question": "can i use mobile app",
+    "answer": "Yes, you can use our mobile-friendly web app or download the Android version from the Play Store (coming soon)."
+  },
+  {
+    "question": "what if payment fails",
+    "answer": "If your payment fails, please wait a few minutes and try again or contact support with your transaction ID."
+  },
+  {
+    "question": "can doctors see my previous records",
+    "answer": "Yes, with your consent, doctors can view your uploaded reports and consultation history."
+  },
+  {
+    "question": "how to change password",
+    "answer": "Go to 'Settings' → 'Security' → 'Change Password' and enter your old and new password."
+  }
+]
